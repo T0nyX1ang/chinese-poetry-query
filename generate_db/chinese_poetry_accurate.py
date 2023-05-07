@@ -1,4 +1,4 @@
-"""Generate database from chinese-poetry."""
+"""Generate database from https://github.com/chinese-poetry/chinese-poetry."""
 
 import os
 import json
@@ -60,9 +60,9 @@ def process_data(filename: str) -> dict:
 
 
 def run():
-    """Generate database from chinese-poetry."""
+    """Generate database."""
     cwd = os.getcwd()
-    working_dir = os.path.join(cwd, "chinese-poetry")
+    working_dir = os.path.join(cwd, "chinese-poetry-accurate")
     database_dir = os.path.join(cwd, "database")
     database = []
 
@@ -80,5 +80,6 @@ def run():
     print('Total items:', len(database))
 
     with open(os.path.join(database_dir, "chinese_poetry_accurate.json"),
-              "w", encoding="utf-8") as f:
+              "w",
+              encoding="utf-8") as f:
         f.write(json.dumps(database, ensure_ascii=False, indent=4))

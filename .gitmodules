@@ -1,6 +1,6 @@
-[submodule "chinese-poetry"]
-	path = chinese-poetry
+[submodule "chinese-poetry-accurate"]
+	path = chinese-poetry-accurate
 	url = https://github.com/chinese-poetry/chinese-poetry
-[submodule "Poetry"]
-	path = Poetry
+[submodule "chinese-poetry-broad"]
+	path = chinese-poetry-broad
 	url = https://github.com/Werneror/Poetry
