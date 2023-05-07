@@ -1,8 +1,9 @@
-"""Generate database from chinese-poetry."""
+"""Generate database from https://github.com/Werneror/Poetry."""
 
 import os
 import json
 import csv
+
 
 def process_data(filename: str) -> dict:
     """Process data from csv file."""
@@ -13,12 +14,12 @@ def process_data(filename: str) -> dict:
         with open(filename, "r", encoding="utf-8") as f:
             data = csv.reader(f)
             for item in data:
-                if len(item) == 5 and str.isalnum(item[0]):
+                if len(item) == 4 and item[3] != "内容":
                     content = {}
-                    content["title"] = item[1]
-                    content["dynasty"] = item[2]
-                    content["author"] = item[3]
-                    content["content"] = item[4]
+                    content["title"] = item[0]
+                    content["dynasty"] = item[1]
+                    content["author"] = item[2]
+                    content["content"] = item[3]
                     converted_data.append(content)
                     total += 1
     except Exception:
@@ -30,9 +31,9 @@ def process_data(filename: str) -> dict:
 
 
 def run():
-    """Generate database from PoetryLibrary."""
+    """Generate database."""
     cwd = os.getcwd()
-    working_dir = os.path.join(cwd, "PoetryLibrary")
+    working_dir = os.path.join(cwd, "chinese-poetry-broad")
     database_dir = os.path.join(cwd, "database")
     database = []
 
@@ -50,5 +51,6 @@ def run():
     print('Total items:', len(database))
 
     with open(os.path.join(database_dir, "chinese_poetry_broad.json"),
-              "w", encoding="utf-8") as f:
+              "w",
+              encoding="utf-8") as f:
         f.write(json.dumps(database, ensure_ascii=False, indent=4))
