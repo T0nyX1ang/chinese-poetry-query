@@ -1,6 +1,3 @@
 [submodule "chinese-poetry"]
 	path = chinese-poetry
 	url = https://github.com/chinese-poetry/chinese-poetry
-[submodule "PoetryLibrary"]
-	path = PoetryLibrary
-	url = https://github.com/T0nyX1ang/PoetryLibrary
